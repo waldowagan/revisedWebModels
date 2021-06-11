@@ -10,7 +10,7 @@ using webtestrevised.Data;
 namespace webtestrevised.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20210611040214_Initial")]
+    [Migration("20210611230951_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,6 +90,9 @@ namespace webtestrevised.Migrations
 
                     b.Property<string>("UserID")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("f_Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LoginID");
 

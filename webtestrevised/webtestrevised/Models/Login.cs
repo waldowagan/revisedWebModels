@@ -14,6 +14,7 @@ namespace webtestrevised.Models
         public DateTime LoginTime { get; set; }
         public string UserID { get; set; }
         public User User { get; set; }
+        public string f_Name { get; set; }
 
     }
 }
