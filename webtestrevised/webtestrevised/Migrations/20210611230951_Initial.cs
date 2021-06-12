@@ -82,7 +82,8 @@ namespace webtestrevised.Migrations
                 {
                     LoginID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LoginTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserID = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    f_Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -89,6 +89,9 @@ namespace webtestrevised.Migrations
                     b.Property<string>("UserID")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("f_Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("LoginID");
 
                     b.HasIndex("UserID");
