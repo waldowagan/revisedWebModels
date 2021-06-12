@@ -49,7 +49,7 @@ namespace webtestrevised.Controllers
         public IActionResult Create()
         {
             ViewData["UserID"] = new SelectList(_context.Users, "UserID", "f_Name");
-           // ViewData["f_Name"] = new SelectList(_context.Users, "f_Name", "f_Name");
+            //ViewData["f_Name"] = new SelectList(_context.Users, "f_Name", "f_Name");
             return View();
         }
 
