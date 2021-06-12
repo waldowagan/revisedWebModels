@@ -14,10 +14,10 @@ namespace webtestrevised.Models
         public DateTime LoginTime { get; set; }
         public string UserID { get; set; }
         public User User { get; set; }
-        public string f_Name { get; set; }
-        //public Client Client { get; set; }
-        //  public string ClientID { get; set; }
-        //public CoursePaper CoursePaper { get; set; }
-        // public string CoursePaperID { get; set; }
+        //public string f_Name { get; set; }
+        public Client Client { get; set; }
+        public string ClientID { get; set; }
+        public CoursePaper CoursePaper { get; set; }
+        public string CoursePaperID { get; set; }
     }
 }
