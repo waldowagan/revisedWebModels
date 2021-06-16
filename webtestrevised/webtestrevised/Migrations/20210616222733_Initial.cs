@@ -12,19 +12,20 @@ namespace webtestrevised.Migrations
                 columns: table => new
                 {
                     UserID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    f_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    l_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    user_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    F_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    L_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    User_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StaffNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    membership_Start = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    membership_End = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    payment = table.Column<bool>(type: "bit", nullable: true)
+                    Staff_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Student_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Membership_Start = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Membership_End = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Payment = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -36,14 +37,14 @@ namespace webtestrevised.Migrations
                 columns: table => new
                 {
                     ClientID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    f_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    l_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    user_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    F_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    L_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    User_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StudentID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -62,8 +63,10 @@ namespace webtestrevised.Migrations
                 columns: table => new
                 {
                     CoursePaperID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CoursePaper_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CourseName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StaffID = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    StaffID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    User_Type = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -83,11 +86,26 @@ namespace webtestrevised.Migrations
                     LoginID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LoginTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    f_Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Has_Client = table.Column<bool>(type: "bit", nullable: false),
+                    Has_CoursePaper = table.Column<bool>(type: "bit", nullable: false),
+                    ClientID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CoursePaperID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Logins", x => x.LoginID);
+                    table.ForeignKey(
+                        name: "FK_Logins_Clients_ClientID",
+                        column: x => x.ClientID,
+                        principalTable: "Clients",
+                        principalColumn: "ClientID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Logins_CoursePapers_CoursePaperID",
+                        column: x => x.CoursePaperID,
+                        principalTable: "CoursePapers",
+                        principalColumn: "CoursePaperID",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Logins_Users_UserID",
                         column: x => x.UserID,
@@ -107,6 +125,16 @@ namespace webtestrevised.Migrations
                 column: "StaffID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Logins_ClientID",
+                table: "Logins",
+                column: "ClientID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Logins_CoursePaperID",
+                table: "Logins",
+                column: "CoursePaperID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Logins_UserID",
                 table: "Logins",
                 column: "UserID");
@@ -115,13 +143,13 @@ namespace webtestrevised.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Logins");
+
+            migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "CoursePapers");
-
-            migrationBuilder.DropTable(
-                name: "Logins");
 
             migrationBuilder.DropTable(
                 name: "Users");

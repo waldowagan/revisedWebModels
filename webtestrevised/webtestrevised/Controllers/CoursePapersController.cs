@@ -48,7 +48,7 @@ namespace webtestrevised.Controllers
         // GET: CoursePapers/Create
         public IActionResult Create()
         {
-            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "UserID");
+            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "F_Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CoursePaperID,CourseName,StaffID")] CoursePaper coursePaper)
+        public async Task<IActionResult> Create([Bind("CoursePaperID,CoursePaper_No,CourseName,StaffID,User_Type")] CoursePaper coursePaper)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CoursePaperID,CourseName,StaffID")] CoursePaper coursePaper)
+        public async Task<IActionResult> Edit(string id, [Bind("CoursePaperID,CoursePaper_No,CourseName,StaffID,User_Type")] CoursePaper coursePaper)
         {
             if (id != coursePaper.CoursePaperID)
             {

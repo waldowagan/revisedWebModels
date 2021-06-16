@@ -54,7 +54,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("membership_Start,membership_End,payment,UserID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type")] Student student)
+        public async Task<IActionResult> Create([Bind("Student_No,Membership_Start,Membership_End,Payment,UserID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("membership_Start,membership_End,payment,UserID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type")] Student student)
+        public async Task<IActionResult> Edit(string id, [Bind("Student_No,Membership_Start,Membership_End,Payment,UserID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type")] Student student)
         {
             if (id != student.UserID)
             {

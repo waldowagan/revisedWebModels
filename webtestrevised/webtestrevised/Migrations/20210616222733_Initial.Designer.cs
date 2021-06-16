@@ -10,7 +10,7 @@ using webtestrevised.Data;
 namespace webtestrevised.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20210611230951_Initial")]
+    [Migration("20210616222733_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,31 +27,31 @@ namespace webtestrevised.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emergency_Contact_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emergency_Contact_No")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("F_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("L_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Login_Time")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone_No")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StudentID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("emergency_Contact_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("emergency_Contact_No")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("f_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("l_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("login_Time")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("phone_No")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("user_Type")
+                    b.Property<string>("User_Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientID");
@@ -64,13 +64,20 @@ namespace webtestrevised.Migrations
             modelBuilder.Entity("webtestrevised.Models.CoursePaper", b =>
                 {
                     b.Property<string>("CoursePaperID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CourseName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoursePaper_No")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StaffID")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("User_Type")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CoursePaperID");
 
@@ -85,16 +92,29 @@ namespace webtestrevised.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ClientID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CoursePaperID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Has_Client")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Has_CoursePaper")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("LoginTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("f_Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("LoginID");
+
+                    b.HasIndex("ClientID");
+
+                    b.HasIndex("CoursePaperID");
 
                     b.HasIndex("UserID");
 
@@ -111,28 +131,28 @@ namespace webtestrevised.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("email")
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("emergency_Contact_Name")
+                    b.Property<string>("Emergency_Contact_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("emergency_Contact_No")
+                    b.Property<string>("Emergency_Contact_No")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("f_Name")
+                    b.Property<string>("F_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("l_Name")
+                    b.Property<string>("L_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("login_Time")
+                    b.Property<DateTime>("Login_Time")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("phone_No")
+                    b.Property<string>("Phone_No")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("user_Type")
+                    b.Property<string>("User_Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");
@@ -146,7 +166,7 @@ namespace webtestrevised.Migrations
                 {
                     b.HasBaseType("webtestrevised.Models.User");
 
-                    b.Property<string>("StaffNo")
+                    b.Property<string>("Staff_No")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Staff");
@@ -156,14 +176,17 @@ namespace webtestrevised.Migrations
                 {
                     b.HasBaseType("webtestrevised.Models.User");
 
-                    b.Property<DateTime>("membership_End")
+                    b.Property<DateTime>("Membership_End")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("membership_Start")
+                    b.Property<DateTime>("Membership_Start")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("payment")
+                    b.Property<bool>("Payment")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Student_No")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Student");
                 });
@@ -188,9 +211,21 @@ namespace webtestrevised.Migrations
 
             modelBuilder.Entity("webtestrevised.Models.Login", b =>
                 {
+                    b.HasOne("webtestrevised.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientID");
+
+                    b.HasOne("webtestrevised.Models.CoursePaper", "CoursePaper")
+                        .WithMany()
+                        .HasForeignKey("CoursePaperID");
+
                     b.HasOne("webtestrevised.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("CoursePaper");
 
                     b.Navigation("User");
                 });

@@ -48,7 +48,7 @@ namespace webtestrevised.Controllers
         // GET: Clients/Create
         public IActionResult Create()
         {
-            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "UserID");
+            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "F_Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClientID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type,StudentID")] Client client)
+        public async Task<IActionResult> Create([Bind("ClientID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type,StudentID")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ClientID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type,StudentID")] Client client)
+        public async Task<IActionResult> Edit(string id, [Bind("ClientID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type,StudentID")] Client client)
         {
             if (id != client.ClientID)
             {

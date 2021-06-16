@@ -24,11 +24,29 @@
             @Html.DisplayFor(model => model.User.UserID)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.f_Name)
+            @Html.DisplayNameFor(model => model.Has_Client)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.f_Name)
+            @Html.DisplayFor(model => model.Has_Client)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Has_CoursePaper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Has_CoursePaper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Client)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Client.ClientID)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CoursePaper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CoursePaper.CoursePaperID)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">

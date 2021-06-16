@@ -14,5 +14,6 @@ namespace webtestrevised.Models
         public string CourseName { get; set; }
         public string StaffID { get; set; }
         public Staff Staff { get; set; }
+        public string User_Type { get; set; }
     }
 }

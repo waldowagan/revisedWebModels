@@ -19,7 +19,16 @@
                 @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.f_Name)
+                @Html.DisplayNameFor(model => model.Has_Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_CoursePaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursePaper)
             </th>
             <th></th>
         </tr>
@@ -31,10 +40,19 @@
                 @Html.DisplayFor(modelItem => item.LoginTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserID)
+                @Html.DisplayFor(modelItem => item.User.F_Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.f_Name)
+                @Html.DisplayFor(modelItem => item.Has_Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has_CoursePaper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.F_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoursePaper.CourseName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.LoginID">Edit</a> |

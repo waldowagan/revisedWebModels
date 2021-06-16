@@ -13,59 +13,64 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="membership_Start" class="control-label"></label>
-                <input asp-for="membership_Start" class="form-control" />
-                <span asp-validation-for="membership_Start" class="text-danger"></span>
+                <label asp-for="Student_No" class="control-label"></label>
+                <input asp-for="Student_No" class="form-control" />
+                <span asp-validation-for="Student_No" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="membership_End" class="control-label"></label>
-                <input asp-for="membership_End" class="form-control" />
-                <span asp-validation-for="membership_End" class="text-danger"></span>
+                <label asp-for="Membership_Start" class="control-label"></label>
+                <input asp-for="Membership_Start" class="form-control" />
+                <span asp-validation-for="Membership_Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membership_End" class="control-label"></label>
+                <input asp-for="Membership_End" class="form-control" />
+                <span asp-validation-for="Membership_End" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="payment" /> @Html.DisplayNameFor(model => model.payment)
+                    <input class="form-check-input" asp-for="Payment" /> @Html.DisplayNameFor(model => model.Payment)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="f_Name" class="control-label"></label>
-                <input asp-for="f_Name" class="form-control" />
-                <span asp-validation-for="f_Name" class="text-danger"></span>
+                <label asp-for="F_Name" class="control-label"></label>
+                <input asp-for="F_Name" class="form-control" />
+                <span asp-validation-for="F_Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="l_Name" class="control-label"></label>
-                <input asp-for="l_Name" class="form-control" />
-                <span asp-validation-for="l_Name" class="text-danger"></span>
+                <label asp-for="L_Name" class="control-label"></label>
+                <input asp-for="L_Name" class="form-control" />
+                <span asp-validation-for="L_Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="phone_No" class="control-label"></label>
-                <input asp-for="phone_No" class="form-control" />
-                <span asp-validation-for="phone_No" class="text-danger"></span>
+                <label asp-for="Phone_No" class="control-label"></label>
+                <input asp-for="Phone_No" class="form-control" />
+                <span asp-validation-for="Phone_No" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="emergency_Contact_Name" class="control-label"></label>
-                <input asp-for="emergency_Contact_Name" class="form-control" />
-                <span asp-validation-for="emergency_Contact_Name" class="text-danger"></span>
+                <label asp-for="Emergency_Contact_Name" class="control-label"></label>
+                <input asp-for="Emergency_Contact_Name" class="form-control" />
+                <span asp-validation-for="Emergency_Contact_Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="emergency_Contact_No" class="control-label"></label>
-                <input asp-for="emergency_Contact_No" class="form-control" />
-                <span asp-validation-for="emergency_Contact_No" class="text-danger"></span>
+                <label asp-for="Emergency_Contact_No" class="control-label"></label>
+                <input asp-for="Emergency_Contact_No" class="form-control" />
+                <span asp-validation-for="Emergency_Contact_No" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="Login_Time" class="control-label"></label>
+                <input asp-for="Login_Time" class="form-control" />
+                <span asp-validation-for="Login_Time" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
-                <label asp-for="login_Time" class="control-label"></label>
-                <input asp-for="login_Time" class="form-control" />
-                <span asp-validation-for="login_Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="user_Type" class="control-label"></label>
-                <input asp-for="user_Type" class="form-control" />
-                <span asp-validation-for="user_Type" class="text-danger"></span>
+                <label asp-for="User_Type" class="control-label"></label>
+                <input asp-for="User_Type" class="form-control" />
+                <span asp-validation-for="User_Type" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
