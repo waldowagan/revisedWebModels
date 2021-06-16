@@ -17,9 +17,9 @@ namespace webtestrevised.Models
         public string emergency_Contact_Name { get; set; }
         public string emergency_Contact_No { get; set; }
 
-        public DateTime login_Time { get; set; }
+       // public DateTime login_Time { get; set; }
 
-        public string user_Type { get; set; }
+        //public string user_Type { get; set; }
 
         public string StudentID { get; set; }
         public Student Student { get; set; }
