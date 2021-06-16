@@ -48,7 +48,7 @@ namespace webtestrevised.Controllers
         // GET: CoursePapers/Create
         public IActionResult Create()
         {
-            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "UserID");
+            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "F_Name");
             return View();
         }
 

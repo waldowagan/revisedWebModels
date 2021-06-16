@@ -50,9 +50,9 @@ namespace webtestrevised.Controllers
         // GET: Logins/Create
         public IActionResult Create()
         {
-            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "ClientID");
-            ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CoursePaperID");
-            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "UserID");
+            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "F_Name");
+            ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CourseName");
+            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "F_Name");
             return View();
         }
 
@@ -61,10 +61,11 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LoginID,LoginTime,UserID,Has_Client,Has_CoursePaper,ClientID,CoursePaperID")] Login login)
+        public async Task<IActionResult> Create([Bind("LoginID,UserID,Has_Client,Has_CoursePaper,ClientID,CoursePaperID")] Login login)
         {
             if (ModelState.IsValid)
             {
+                login.LoginTime = DateTime.Now;
                 _context.Add(login);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

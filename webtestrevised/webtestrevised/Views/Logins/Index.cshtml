@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.LoginTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserID)
+                @Html.DisplayFor(modelItem => item.User.F_Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Has_Client)
@@ -49,10 +49,10 @@
                 @Html.DisplayFor(modelItem => item.Has_CoursePaper)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Client.ClientID)
+                @Html.DisplayFor(modelItem => item.Client.F_Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CoursePaper.CoursePaperID)
+                @Html.DisplayFor(modelItem => item.CoursePaper.CourseName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.LoginID">Edit</a> |
