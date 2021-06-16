@@ -14,7 +14,9 @@ namespace webtestrevised.Models
         public DateTime LoginTime { get; set; }
         public string UserID { get; set; }
         public User User { get; set; }
-        //public string f_Name { get; set; }
+        // public string F_Name { get; set; }
+        public bool Has_Client { get; set; }
+        public bool Has_CoursePaper { get; set; }
         public Client Client { get; set; }
         public string ClientID { get; set; }
         public CoursePaper CoursePaper { get; set; }

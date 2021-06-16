@@ -54,7 +54,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StaffNo,UserID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type")] Staff staff)
+        public async Task<IActionResult> Create([Bind("Staff_No,UserID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace webtestrevised.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StaffNo,UserID,f_Name,l_Name,email,phone_No,emergency_Contact_Name,emergency_Contact_No,login_Time,user_Type")] Staff staff)
+        public async Task<IActionResult> Edit(string id, [Bind("Staff_No,UserID,F_Name,L_Name,Email,Phone_No,Emergency_Contact_Name,Emergency_Contact_No,Login_Time,User_Type")] Staff staff)
         {
             if (id != staff.UserID)
             {

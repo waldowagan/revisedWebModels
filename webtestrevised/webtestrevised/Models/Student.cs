@@ -7,10 +7,10 @@ namespace webtestrevised.Models
 {
     public class Student : User
     {
-        public string student_No { get; set; }
-        public DateTime membership_Start { get; set; }
-        public DateTime membership_End { get; set; }
-        public bool payment { get; set; }
+        public string Student_No { get; set; }
+        public DateTime Membership_Start { get; set; }
+        public DateTime Membership_End { get; set; }
+        public bool Payment { get; set; }
 
         public ICollection<Client> Clients { get; set; }
     }
