@@ -58,6 +58,7 @@ namespace webtestrevised.Controllers
         {
             if (ModelState.IsValid)
             {
+                staff.User_Type = "Staff";
                 _context.Add(staff);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
