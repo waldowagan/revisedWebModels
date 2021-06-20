@@ -61,6 +61,7 @@ namespace webtestrevised.Controllers
         {
             if (ModelState.IsValid)
             {
+                coursePaper.User_Type = "Course Paper";
                 _context.Add(coursePaper);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
