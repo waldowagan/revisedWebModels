@@ -23,5 +23,6 @@ namespace webtestrevised.Models
 
         public string StudentID { get; set; }
         public Student Student { get; set; }
+        public string FullName { get { return F_Name + " " + L_Name; } }
     }
 }

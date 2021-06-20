@@ -21,5 +21,7 @@ namespace webtestrevised.Models
 
         public string User_Type { get; set; }
 
+        public string FullName { get { return F_Name + " " + L_Name; } }
+
     }
 }
