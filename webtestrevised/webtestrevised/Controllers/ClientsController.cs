@@ -61,6 +61,7 @@ namespace webtestrevised.Controllers
         {
             if (ModelState.IsValid)
             {
+                client.User_Type = "Client";
                 _context.Add(client);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
