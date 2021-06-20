@@ -48,7 +48,8 @@ namespace webtestrevised.Controllers
         // GET: Clients/Create
         public IActionResult Create()
         {
-            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "F_Name");
+            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "FullName");
+           
             return View();
         }
 

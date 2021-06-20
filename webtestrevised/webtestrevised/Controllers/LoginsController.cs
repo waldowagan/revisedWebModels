@@ -50,9 +50,9 @@ namespace webtestrevised.Controllers
         // GET: Logins/Create
         public IActionResult Create()
         {
-            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "F_Name");
+            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "FullName");
             ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CourseName");
-            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "F_Name");
+            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "FullName");
             return View();
         }
 
