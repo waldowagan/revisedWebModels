@@ -23,27 +23,21 @@ namespace webtestrevised.Controllers
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+          
             ViewData["CurrentFilter"] = searchString;
 
             var students = from s in _context.Students
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.L_Name.Contains(searchString)
-                                       || s.F_Name.Contains(searchString));
+                students = students.Where(s => s.Student_No.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
                     students = students.OrderByDescending(s => s.L_Name);
                     break;
-                case "Date":
-                    students = students.OrderBy(s => s.Membership_Start);
-                    break;
-                case "date_desc":
-                    students = students.OrderByDescending(s => s.Membership_Start);
-                    break;
+               
                 default:
                     students = students.OrderBy(s => s.L_Name);
                     break;
