@@ -30,13 +30,13 @@ namespace webtestrevised.Controllers
                            select st;
             if (!String.IsNullOrEmpty(searchString))
             {
-                staffs = staffs.Where(s => s.L_Name.Contains(searchString)
-                                       || s.F_Name.Contains(searchString));
+                staffs = staffs.Where(st => st.L_Name.Contains(searchString)
+                                       || st.F_Name.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    staffs = staffs.OrderByDescending(s => s.L_Name);
+                    staffs = staffs.OrderByDescending(st => st.L_Name);
                     break;
                 //case "Date":
                 //    students = students.OrderBy(s => s.EnrollmentDate);
@@ -45,7 +45,7 @@ namespace webtestrevised.Controllers
                 //    students = students.OrderByDescending(s => s.EnrollmentDate);
                 //    break;
                 default:
-                    staffs = staffs.OrderBy(s => s.L_Name);
+                    staffs = staffs.OrderBy(st => st.L_Name);
                     break;
             }
             return View(await staffs.AsNoTracking().ToListAsync());
