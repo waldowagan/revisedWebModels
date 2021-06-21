@@ -18,15 +18,48 @@ namespace webtestrevised.Controllers
         {
             _context = context;
         }
-
-        // GET: Clients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            var gymContext = _context.Clients.Include(c => c.Student);
-            return View(await gymContext.ToListAsync());
-        }
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["CurrentFilter"] = searchString;
 
-        // GET: Clients/Details/5
+            var clients = from c in _context.Clients
+                           select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clients = clients.Where(s => s.L_Name.Contains(searchString)
+                                       || s.F_Name.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                   clients = clients.OrderByDescending(s => s.L_Name);
+                    break;
+                //case "Date":
+                //    students = students.OrderBy(s => s.EnrollmentDate);
+                //    break;
+                //case "date_desc":
+                //    students = students.OrderByDescending(s => s.EnrollmentDate);
+                //    break;
+                default:
+                    clients = clients.OrderBy(s => s.L_Name);
+                    break;
+            }
+            return View(await clients.AsNoTracking().ToListAsync());
+        }
+        // GET: Clients
+
+        //public async Task<IActionResult> Index()
+        //{
+
+        //    var gymContext = _context.Clients.Include(c => c.Student);
+        //    return View(await gymContext.ToListAsync());
+        //}
+
+
+
+        // GET: Clients/Details
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -67,7 +100,7 @@ namespace webtestrevised.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "UserID", client.StudentID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "FullName", client.StudentID);
             return View(client);
         }
 
