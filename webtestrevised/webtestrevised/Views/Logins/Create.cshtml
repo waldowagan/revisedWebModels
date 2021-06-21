@@ -13,31 +13,32 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                <label asp-for="LoginTime" class="control-label"></label>
-                <input asp-for="LoginTime" class="form-control" />
-                <span asp-validation-for="LoginTime" class="text-danger"></span>
-            </div>*@
+            <label asp-for="LoginTime" class="control-label"></label>
+            <input asp-for="LoginTime" class="form-control" />
+            <span asp-validation-for="LoginTime" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="UserID" class="control-label"></label>
-                <select asp-for="UserID" class ="form-control" asp-items="ViewBag.UserID"></select>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Has_Client" /> @Html.DisplayNameFor(model => model.Has_Client)
+                    <input class="form-check-input-client" asp-for="Has_Client" /> @Html.DisplayNameFor(model => model.Has_Client)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Has_CoursePaper" /> @Html.DisplayNameFor(model => model.Has_CoursePaper)
+                    <input class="form-check-input-paper" asp-for="Has_CoursePaper" /> @Html.DisplayNameFor(model => model.Has_CoursePaper)
                 </label>
             </div>
-            <div class="form-group">
+            <div class="form-group-client">
                 <label asp-for="ClientID" class="control-label"></label>
                 <select asp-for="ClientID" class="form-control" asp-items="ViewBag.ClientID">
                     <option value="">--None--</option>
                 </select>
             </div>
-            <div class="form-group">
+            
+            <div class="form-group-paper">
                 <label asp-for="CoursePaperID" class="control-label"></label>
                 <select asp-for="CoursePaperID" class="form-control" asp-items="ViewBag.CoursePaperID">
                     <option value="">--None--</option>
@@ -57,3 +58,29 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type= "text/javascript">
+    $('.form-group-paper').hide();
+    $('.form-group-client').hide();
+    $(function toggleclient() {
+        $('.form-check-input-client').click(function toggleclient() {
+            if ($(this).is(":checked")) {
+                $('.form-group-client').show();
+           
+            } else {
+                $('.form-group-client').hide();
+            }
+        });
+    });
+
+    $(function togglepaper() {
+        $('.form-check-input-paper').click(function togglepaper() {
+            if ($(this).is(":checked")) {
+                $('.form-group-paper').show();
+
+            } else {
+                $('.form-group-paper').hide();
+            }
+        });
+    });
+</script>
