@@ -24,12 +24,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Student_No)
             </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Membership_Start)</a>
-            </th>
             @*<th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Membership_Start)</a>
+            </th>*@
+            <th>
             @Html.DisplayNameFor(model => model.Membership_Start)
-        </th>*@
+        </th>
             <th>
                 @Html.DisplayNameFor(model => model.Membership_End)
             </th>
@@ -37,11 +37,11 @@
                 @Html.DisplayNameFor(model => model.Payment)
             </th>
 
+            @*<th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.F_Name)
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.L_Name)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.FullName)</a>
             </th>
             @*<th>
             @Html.DisplayNameFor(model => model.L_Name)
@@ -83,11 +83,11 @@
                 @Html.DisplayFor(modelItem => item.Payment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.F_Name)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.L_Name)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
