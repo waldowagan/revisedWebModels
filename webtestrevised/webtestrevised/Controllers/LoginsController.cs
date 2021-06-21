@@ -20,10 +20,27 @@ namespace webtestrevised.Controllers
         }
 
         // GET: Logins
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+           
+            ViewData["DateSortParm"] = String.IsNullOrEmpty(sortOrder) ? "date_desc" : " ";
             var gymContext = _context.Logins.Include(l => l.Client).Include(l => l.CoursePaper).Include(l => l.User);
-            return View(await gymContext.ToListAsync());
+
+            var logs = from s in gymContext
+                           select s;
+            switch (sortOrder)
+            {
+
+                case "date_desc":
+                    logs = logs.OrderBy(s => s.LoginTime);
+                    break;
+                default:
+                    logs = logs.OrderByDescending(s => s.LoginTime);
+                    break;
+              
+            }
+            return View(await logs.AsNoTracking().ToListAsync());
+            //return View(await gymContext.ToListAsync());
         }
 
         // GET: Logins/Details/5
