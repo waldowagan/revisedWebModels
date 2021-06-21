@@ -9,6 +9,15 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -16,20 +25,27 @@
                 @Html.DisplayNameFor(model => model.Student_No)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership_Start)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Membership_Start)</a>
             </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Membership_Start)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Membership_End)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Payment)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.F_Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.L_Name)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.L_Name)</a>
             </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.L_Name)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
@@ -43,8 +59,8 @@
                 @Html.DisplayNameFor(model => model.Emergency_Contact_No)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.Login_Time)
-            </th>*@
+            @Html.DisplayNameFor(model => model.Login_Time)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.User_Type)
             </th>
