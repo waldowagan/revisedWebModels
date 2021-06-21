@@ -20,10 +20,34 @@ namespace webtestrevised.Controllers
         }
 
         // GET: CoursePapers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            var gymContext = _context.CoursePapers.Include(c => c.Staff);
-            return View(await gymContext.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+           
+            ViewData["CurrentFilter"] = searchString;
+
+            var courses = from co in _context.CoursePapers
+                           select co;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                courses = courses.Where(co => co.CoursePaper_No.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    courses = courses.OrderByDescending(co => co.CoursePaper_No);
+                    break;
+                //case "Date":
+                //    students = students.OrderBy(s => s.EnrollmentDate);
+                //    break;
+                //case "date_desc":
+                //    students = students.OrderByDescending(s => s.EnrollmentDate);
+                //    break;
+                default:
+                    courses = courses.OrderBy(co => co.CoursePaper_No);
+                    break;
+            }
+            return View(await courses.AsNoTracking().ToListAsync());
         }
 
         // GET: CoursePapers/Details/5

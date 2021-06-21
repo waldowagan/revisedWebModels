@@ -34,7 +34,7 @@ namespace webtestrevised.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                   clients = clients.OrderByDescending(s => s.L_Name);
+                   clients = clients.OrderByDescending(c => c.L_Name);
                     break;
                 //case "Date":
                 //    students = students.OrderBy(s => s.EnrollmentDate);
@@ -43,7 +43,7 @@ namespace webtestrevised.Controllers
                 //    students = students.OrderByDescending(s => s.EnrollmentDate);
                 //    break;
                 default:
-                    clients = clients.OrderBy(s => s.L_Name);
+                    clients = clients.OrderBy(c => c.L_Name);
                     break;
             }
             return View(await clients.AsNoTracking().ToListAsync());
