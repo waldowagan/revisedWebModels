@@ -13,7 +13,8 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LoginTime)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.LoginTime)</a>
+                @*@Html.DisplayNameFor(model => model.LoginTime)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.User)
