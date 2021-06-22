@@ -117,7 +117,7 @@ namespace webtestrevised.Controllers
             {
                 return NotFound();
             }
-            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "UserID", client.StudentID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "FullName", client.StudentID);
             return View(client);
         }
 
@@ -153,7 +153,7 @@ namespace webtestrevised.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "UserID", client.StudentID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "UserID", "FullName", client.StudentID);
             return View(client);
         }
 
