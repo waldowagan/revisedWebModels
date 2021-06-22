@@ -11,6 +11,7 @@
 
         .navbar {
             background: linear-gradient(to bottom, #004367 90%, #f36f24 74%);
+         
         }
         
         .nav-item{
@@ -20,13 +21,17 @@
             background-color: #004367;
         }
 
+        .h5{
+            font-family:'Courier New';
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 ">
+        <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-0">
             <div class="container">
-                <a class="navbar-brand text-light font-weight-bold" asp-area="" asp-controller="Logins" asp-action="Create">SIT Gym</a>
+                <a class="navbar-brand text-light display-4" asp-area="" asp-controller="Logins" asp-action="Create">SIT Gym</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,26 +43,26 @@
                             </li>*@
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                            <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
+                            <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
+                            <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="CoursePapers" asp-action="Index">Course Paper</a>
+                            <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="CoursePapers" asp-action="Index">Course Paper</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Logins" asp-action="Index">Login History</a>
+                            <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Logins" asp-action="Index">Login History</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid body-content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

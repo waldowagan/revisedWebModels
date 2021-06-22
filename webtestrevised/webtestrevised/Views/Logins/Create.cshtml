@@ -3,37 +3,77 @@
 @{
     ViewData["Title"] = "Create";
 }
-<style>
 
-   
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    @@media (min-width: 768px) {
+        .h-md-100 {
+            height: 90vh;
+        }
+    }
+
+    .btn-round {
+        border-radius: 30px;
+    }
+
+    .bg-indigo {
+        background: #004367;
+    }
+
+    .text-cyan {
+        color: #35bdff;
+    }
+
+    h1 {
+        font-family: 'Courier New';
+        font-size: 5em;
+    }
+    h2 {
+        font-family: 'Courier New';
+        font-size: 2em;
+    }
 </style>
 
-<h1>Welcome to the SIT Gym !</h1>
-
-<h4>Login</h4>
 
 
-    <div class="row">
-        <div class="col-md-4">
+
+
+
+
+<div class="d-md-flex h-md-100 align-items-center">
+
+    <!-- First Half -->
+
+    <div class="col-md-6 p-5 bg-indigo h-md-100">
+        <div class="text-white d-md-flex align-items-center h-100 p-0 text-left justify-content-center">
+            <div class="logoarea pt-3 pb-5">
+                <h1 >Welcome to the SIT Gym !</h1>
+                <h2 >Please Select Your Name</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Half -->
+
+    <div class="col-md-6 p-0 h-md-100 loginarea">
+        <div class="d-md-flex align-items-center h-md-100 p-0 justify-content-center">
+
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                @*<div class="form-group">
-                        <label asp-for="LoginTime" class="control-label"></label>
-                        <input asp-for="LoginTime" class="form-control" />
-                        <span asp-validation-for="LoginTime" class="text-danger"></span>
-                    </div>*@
+
                 <div class="form-group">
-                    <label asp-for="UserID" class="control-label"></label>
+                    <label asp-for="UserID" class="control-label display-4">Select Your Name</label>
                     <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
                 </div>
                 <div class="form-group form-check">
                     <label class="form-check-label">
-                        <input class="form-check-input-client" asp-for="Has_Client" /> @Html.DisplayNameFor(model => model.Has_Client)
+                        <input class="form-check-input-client" asp-for="Has_Client" /> Have a client? @*@Html.DisplayNameFor(model => model.Has_Client)*@
                     </label>
                 </div>
                 <div class="form-group form-check">
                     <label class="form-check-label">
-                        <input class="form-check-input-paper" asp-for="Has_CoursePaper" /> @Html.DisplayNameFor(model => model.Has_CoursePaper)
+                        <input class="form-check-input-paper" asp-for="Has_CoursePaper" /> Have a class? @*@Html.DisplayNameFor(model => model.Has_CoursePaper)*@
                     </label>
                 </div>
                 <div class="form-group-client">
@@ -53,43 +93,42 @@
                     <input type="submit" value="Sign In" class="btn btn-primary" />
                 </div>
             </form>
+
         </div>
     </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-   
+</div>
 
 
 
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-        $('.form-group-paper').hide();
-        $('.form-group-client').hide();
-        $(function toggleclient() {
-            $('.form-check-input-client').click(function toggleclient() {
-                if ($(this).is(":checked")) {
-                    $('.form-group-client').show();
 
-                } else {
-                    $('.form-group-client').hide();
-                }
-            });
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript">
+    $('.form-group-paper').hide();
+    $('.form-group-client').hide();
+    $(function toggleclient() {
+        $('.form-check-input-client').click(function toggleclient() {
+            if ($(this).is(":checked")) {
+                $('.form-group-client').show();
+
+            } else {
+                $('.form-group-client').hide();
+            }
         });
+    });
 
-        $(function togglepaper() {
-            $('.form-check-input-paper').click(function togglepaper() {
-                if ($(this).is(":checked")) {
-                    $('.form-group-paper').show();
+    $(function togglepaper() {
+        $('.form-check-input-paper').click(function togglepaper() {
+            if ($(this).is(":checked")) {
+                $('.form-group-paper').show();
 
-                } else {
-                    $('.form-group-paper').hide();
-                }
-            });
+            } else {
+                $('.form-group-paper').hide();
+            }
         });
-    </script>
+    });
+</script>
