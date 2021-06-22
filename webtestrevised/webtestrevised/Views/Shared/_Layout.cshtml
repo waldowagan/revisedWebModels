@@ -7,12 +7,26 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     
+    <style>
+
+        .navbar {
+            background: linear-gradient(to bottom, #004367 90%, #f36f24 74%);
+        }
+        
+        .nav-item{
+         color: white;
+        }
+        .footer {
+            background-color: #004367;
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 ">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Logins" asp-action="Create">SIT Gym</a>
+                <a class="navbar-brand text-light font-weight-bold" asp-area="" asp-controller="Logins" asp-action="Create">SIT Gym</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,19 +38,19 @@
                             </li>*@
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CoursePapers" asp-action="Index">Course Paper</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="CoursePapers" asp-action="Index">Course Paper</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Logins" asp-action="Index">Login History</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Logins" asp-action="Index">Login History</a>
                         </li>
                     </ul>
                 </div>
@@ -52,8 +66,8 @@
 
       
         <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2021 - webtestrevised - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="container text-light">
+                &copy; 2021 - Team Radiance 
             </div>
         </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>

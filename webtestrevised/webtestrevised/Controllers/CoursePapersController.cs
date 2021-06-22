@@ -90,7 +90,7 @@ namespace webtestrevised.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "UserID", coursePaper.StaffID);
+            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "FullName", coursePaper.StaffID);
             return View(coursePaper);
         }
 
@@ -107,7 +107,7 @@ namespace webtestrevised.Controllers
             {
                 return NotFound();
             }
-            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "UserID", coursePaper.StaffID);
+            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "FullName", coursePaper.StaffID);
             return View(coursePaper);
         }
 
@@ -143,7 +143,7 @@ namespace webtestrevised.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "UserID", coursePaper.StaffID);
+            ViewData["StaffID"] = new SelectList(_context.Staff, "UserID", "FullName", coursePaper.StaffID);
             return View(coursePaper);
         }
 

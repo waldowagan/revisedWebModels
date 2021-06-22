@@ -106,9 +106,9 @@ namespace webtestrevised.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "ClientID", login.ClientID);
-            ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CoursePaperID", login.CoursePaperID);
-            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "UserID", login.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "FullName", login.ClientID);
+            ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CourseName", login.CoursePaperID);
+            ViewData["UserID"] = new SelectList(_context.Users, "UserID", "FullName", login.UserID);
             return View(login);
         }
 
