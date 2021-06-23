@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserID)
+            @Html.DisplayFor(model => model.User.FullName)
         </dd class>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Has_Client)
@@ -39,13 +39,13 @@
             @Html.DisplayNameFor(model => model.Client)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Client.ClientID)
+            @Html.DisplayFor(model => model.Client.FullName)
         </dd class>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CoursePaper)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CoursePaper.CoursePaperID)
+            @Html.DisplayFor(model => model.CoursePaper.CourseName)
         </dd class>
     </dl>
     
