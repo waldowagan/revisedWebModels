@@ -85,7 +85,7 @@ namespace webtestrevised.Controllers
                 login.LoginTime = DateTime.Now;
                 _context.Add(login);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
             ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "ClientID", login.ClientID);
             ViewData["CoursePaperID"] = new SelectList(_context.CoursePapers, "CoursePaperID", "CoursePaperID", login.CoursePaperID);
