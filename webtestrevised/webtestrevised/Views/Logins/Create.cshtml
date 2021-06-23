@@ -4,12 +4,17 @@
     ViewData["Title"] = "Create";
 }
 
+@{
+    Layout = null;
+}
+
+
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
     @@media (min-width: 768px) {
         .h-md-100 {
-            height: 88vh;
+            height: 90vh;
         }
     }
 
@@ -20,7 +25,7 @@
     .bg-indigo {
         background: #004367;
     }
- /*   .loginarea{
+    /*   .loginarea{
         background: #fffbf2;
     }*/
 
@@ -30,83 +35,144 @@
         font-family: 'Courier New';
         font-size: 5em;
     }
+
     h2 {
         font-family: 'Courier New';
         font-size: 2em;
     }
+
     .btn {
         background-color: #004367;
         border-color: #ffff;
     }
 
+    .nopad {
+        padding: 0;
+    }
+    .navbar {
+        background: linear-gradient(to bottom, #004367 90%, #f36f24 74%);
+    }
+
+    .nav-item {
+        color: white;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(to left, #ffffff 50%, #004367 50%);
+    }
+
+    .h5 {
+        font-family: Verdana;
+    }
 </style>
 
+<header>
+    <nav class="navbar py-4 navbar-expand-sm navbar-toggleable-sm navbar-light mb-0">
+        <div class="container">
+            <a class="navbar-brand text-light display-4" asp-area="" asp-controller="Logins" asp-action="Create">SIT Gym</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Logins" asp-action="Create">Home</a>
+                        </li>*@
+
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="CoursePapers" asp-action="Index">Course Paper</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-brand text-light display-4" asp-area="" asp-controller="Logins" asp-action="Index">Login History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 
 
+<main class="nopad">
 
 
+    <div class="p-0 d-md-flex h-md-100 align-items-center">
 
-<div class="d-md-flex h-md-100 align-items-center">
+        <!-- First Half -->
 
-    <!-- First Half -->
+        <div class="col-md-6 p-5 bg-indigo h-md-100">
+            <div class="text-white d-md-flex align-items-center h-100 p-0 text-left justify-content-center">
+                <div class="logoarea pt-3 pb-0">
+                    <h1>Welcome to the SIT Gym !</h1>
+                    <h2>Please Select Your Name</h2>
+                </div>
+            </div>
+        </div>
 
-    <div class="col-md-6 p-5 bg-indigo h-md-100">
-        <div class="text-white d-md-flex align-items-center h-100 p-0 text-left justify-content-center">
-            <div class="logoarea pt-3 pb-0">
-                <h1 >Welcome to the SIT Gym !</h1>
-                <h2 >Please Select Your Name</h2>
+        <!-- Second Half -->
+
+        <div class="col-md-6 p-0 h-md-100 loginarea">
+            <div class="d-md-flex align-items-center h-md-100 p-0 justify-content-center">
+
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="UserID" class="control-label display-4 mb-5">Select Your Name</label>
+                        <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input-client" asp-for="Has_Client" /> Have a client? @*@Html.DisplayNameFor(model => model.Has_Client)*@
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input-paper" asp-for="Has_CoursePaper" /> Have a class? @*@Html.DisplayNameFor(model => model.Has_CoursePaper)*@
+                        </label>
+                    </div>
+                    <div class="form-group-client">
+                        <label asp-for="ClientID" class="control-label">Select Client</label>
+                        <select asp-for="ClientID" class="form-control" asp-items="ViewBag.ClientID">
+                            <option value="">--None--</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-paper">
+                        <label asp-for="CoursePaperID" class="control-label">Select Course</label>
+                        <select asp-for="CoursePaperID" class="form-control" asp-items="ViewBag.CoursePaperID">
+                            <option value="">--None--</option>
+                        </select>
+                    </div>
+                    <div class="form-group pt-2">
+                        <input type="submit" value="Sign In" class="btn btn-primary" />
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
 
-    <!-- Second Half -->
 
-    <div class="col-md-6 p-0 h-md-100 loginarea">
-        <div class="d-md-flex align-items-center h-md-100 p-0 justify-content-center">
-
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="form-group">
-                    <label asp-for="UserID" class="control-label display-4 mb-5">Select Your Name</label>
-                    <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input-client" asp-for="Has_Client" /> Have a client? @*@Html.DisplayNameFor(model => model.Has_Client)*@
-                    </label>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input-paper" asp-for="Has_CoursePaper" /> Have a class? @*@Html.DisplayNameFor(model => model.Has_CoursePaper)*@
-                    </label>
-                </div>
-                <div class="form-group-client">
-                    <label asp-for="ClientID" class="control-label"></label>
-                    <select asp-for="ClientID" class="form-control" asp-items="ViewBag.ClientID">
-                        <option value="">--None--</option>
-                    </select>
-                </div>
-
-                <div class="form-group-paper">
-                    <label asp-for="CoursePaperID" class="control-label"></label>
-                    <select asp-for="CoursePaperID" class="form-control" asp-items="ViewBag.CoursePaperID">
-                        <option value="">--None--</option>
-                    </select>
-                </div>
-                <div class="form-group pt-2">
-                    <input type="submit" value="Sign In" class="btn btn-primary" />
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-
-
-
+</main>
+<footer class="footer text-muted">
+    
+</footer>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

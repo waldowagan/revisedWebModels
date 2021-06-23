@@ -19,12 +19,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.User)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Has_Client)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Has_CoursePaper)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Client)
             </th>
@@ -41,16 +41,16 @@
                 @Html.DisplayFor(modelItem => item.LoginTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.F_Name)
+                @Html.DisplayFor(modelItem => item.User.FullName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Has_Client)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Has_CoursePaper)
-            </td>
+            </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.Client.F_Name)
+                @Html.DisplayFor(modelItem => item.Client.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CoursePaper.CourseName)
