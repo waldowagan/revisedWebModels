@@ -18,7 +18,6 @@ namespace webtestrevised.Migrations
                     Phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     User_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Staff_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -43,7 +42,6 @@ namespace webtestrevised.Migrations
                     Phone_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Emergency_Contact_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Emergency_Contact_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Login_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     User_Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StudentID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },

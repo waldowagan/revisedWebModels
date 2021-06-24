@@ -40,9 +40,6 @@ namespace webtestrevised.Migrations
                     b.Property<string>("L_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Login_Time")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Phone_No")
                         .HasColumnType("nvarchar(max)");
 
@@ -143,9 +140,6 @@ namespace webtestrevised.Migrations
 
                     b.Property<string>("L_Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Login_Time")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone_No")
                         .HasColumnType("nvarchar(max)");

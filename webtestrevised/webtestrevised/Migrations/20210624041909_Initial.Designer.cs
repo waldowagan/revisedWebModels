@@ -10,7 +10,7 @@ using webtestrevised.Data;
 namespace webtestrevised.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20210616222733_Initial")]
+    [Migration("20210624041909_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,9 +41,6 @@ namespace webtestrevised.Migrations
 
                     b.Property<string>("L_Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Login_Time")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone_No")
                         .HasColumnType("nvarchar(max)");
@@ -145,9 +142,6 @@ namespace webtestrevised.Migrations
 
                     b.Property<string>("L_Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Login_Time")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone_No")
                         .HasColumnType("nvarchar(max)");

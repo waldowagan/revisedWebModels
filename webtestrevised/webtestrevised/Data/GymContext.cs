@@ -11,6 +11,7 @@ namespace webtestrevised.Data
     {
         public GymContext(DbContextOptions<GymContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<User> Users { get; set; }
